@@ -131,96 +131,48 @@ img { display: block; max-width: 100%; }
 	border-radius: 0 0 18px 18px;
 }
 
-.story-rail { display: grid; gap: 28px; }
+.story-rail {
+	display: grid;
+	gap: 28px;
+}
 
-.mini-story,
-.project-story,
-.contact-card {
+.hero-image-card,
+.hero-project-panel {
+	display: block;
 	position: relative;
 	overflow: hidden;
-	min-height: 310px;
-	padding: 16px;
 	border-radius: 20px;
-	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.08)), var(--bg);
-	background-size: cover;
-	background-position: center;
-	color: #fffaf0;
+	background: #151513;
+	box-shadow: 0 18px 42px rgba(0, 0, 0, 0.16);
 }
 
-.mini-story .tag,
-.project-story .tag {
-	position: absolute;
-	top: 14px;
-	left: 14px;
-	padding: 8px 20px;
-	border: 1px solid rgba(255, 255, 255, 0.5);
-	border-radius: 999px;
-	font-size: 15px;
-	font-weight: 800;
+.hero-image-card {
+	aspect-ratio: 1 / 1;
 }
 
-.mini-story .date,
-.project-story .date {
-	position: absolute;
-	top: 14px;
-	right: 14px;
-	padding: 8px 20px;
-	border-radius: 999px;
-	background: rgba(255, 255, 255, 0.28);
-	font-size: 15px;
-	font-weight: 700;
+.hero-image-card img,
+.hero-project-panel img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
-.mini-story small,
-.project-story small {
-	position: absolute;
-	left: 16px;
-	bottom: 116px;
-	color: rgba(255, 255, 255, 0.82);
+.hero-project-panel {
+	aspect-ratio: 290 / 341;
 }
 
-.mini-story strong,
-.project-story strong {
-	position: absolute;
-	left: 16px;
-	right: 76px;
-	bottom: 58px;
-	font-size: 31px;
-	line-height: 1.05;
-	letter-spacing: -0.04em;
+.hero-photo-frame {
+	overflow: hidden;
+	border-radius: 20px;
+	height: 417px;
+	background: #ddd5c8;
 }
 
-.mini-story em {
-	position: absolute;
-	left: 16px;
-	right: 76px;
-	bottom: 18px;
-	color: rgba(255, 250, 240, 0.9);
-	font-size: 16px;
-	font-style: normal;
-	line-height: 1.25;
-}
-
-.mini-story i,
-.project-story i {
-	position: absolute;
-	right: -2px;
-	bottom: -2px;
-	display: grid;
-	place-items: center;
-	width: 92px;
-	height: 92px;
-	border-radius: 50% 0 18px 0;
-	background: var(--paper);
-	color: var(--ink);
-	font-size: 28px;
-	font-style: normal;
-}
-
-.hero-main img {
+.hero-photo-frame > img {
 	width: 100%;
 	height: 501px;
 	object-fit: cover;
+	object-position: top center;
 	border-radius: 20px;
 	filter: saturate(0.92) contrast(1.02);
 }
@@ -319,16 +271,16 @@ img { display: block; max-width: 100%; }
 }
 
 .quick-links { display: flex; gap: 10px; flex-wrap: wrap; }
-.project-story {
-	min-height: 341px;
-	background-image: var(--bg);
-}
-
-.project-story.exact-panel .tag,
-.project-story.exact-panel .date,
-.project-story.exact-panel small,
-.project-story.exact-panel strong {
-	display: none;
+.contact-card {
+	position: relative;
+	overflow: hidden;
+	min-height: 310px;
+	padding: 16px;
+	border-radius: 20px;
+	background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.03), rgba(0, 0, 0, 0.08)), var(--bg);
+	background-size: cover;
+	background-position: center;
+	color: #fffaf0;
 }
 
 .split-section,
@@ -699,7 +651,8 @@ img { display: block; max-width: 100%; }
 	}
 	.hero { padding: 28px 20px; }
 	.story-rail { grid-template-columns: 1fr 1fr; }
-	.hero-main img { height: 300px; }
+	.hero-photo-frame { height: 360px; }
+	.hero-photo-frame > img { height: 432px; }
 	.info-card { position: static; width: auto; margin-top: -6px; }
 	.photo-panel { min-height: auto; }
 	.stacked,
@@ -720,15 +673,16 @@ img { display: block; max-width: 100%; }
 	.topbar > .dark-btn { justify-self: start; }
 	.hero { grid-template-columns: 1fr; gap: 18px; }
 	.story-rail { grid-template-columns: 1fr; }
-	.mini-story,
-	.project-story { min-height: 210px; }
+	.hero-image-card,
+	.hero-project-panel { max-width: 360px; width: 100%; }
 	.hero h1,
 	.section-copy h2,
 	.section-head h2 { font-size: 42px; }
 	.section-head { align-items: start; flex-direction: column; }
-	.hero-main img,
+	.hero-photo-frame,
 	.photo-panel > img,
 	.wide-photo { height: 245px; }
+	.hero-photo-frame > img { height: 295px; }
 	.cv-photo { height: 150px; }
 	.contact-card { min-height: 220px; }
 }
