@@ -1,3 +1,9 @@
 desktop.png
 mobile.png
 mobile-top.png
+dashboard-*.png
+assets/shane_exact_assets/references/
+assets/shane_exact_assets/README.txt
+assets/shane_exact_assets/cuts/*_section_block.png
+!assets/shane_exact_assets/cuts/contact_section_block.png
+assets/shane_exact_assets/cuts/hero_text_content_block.png
