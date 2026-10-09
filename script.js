@@ -12,21 +12,6 @@ if (!reduceMotion && window.Lenis) {
 if (!reduceMotion && window.gsap) {
 	gsap.registerPlugin(ScrollTrigger);
 
-	gsap.from(".topbar", {
-		y: -20,
-		opacity: 0,
-		duration: 0.7,
-		ease: "power3.out"
-	});
-
-	gsap.from(".hero-main img", {
-		scale: 0.96,
-		opacity: 0,
-		duration: 0.9,
-		ease: "power3.out",
-		delay: 0.1
-	});
-
 	gsap.utils.toArray(".reveal").forEach((item) => {
 		gsap.from(item, {
 			scrollTrigger: {
