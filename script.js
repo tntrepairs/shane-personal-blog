@@ -1,84 +1,53 @@
-const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-const menuToggle = document.querySelector(".menu-toggle");
-const mobileMenu = document.querySelector(".mobile-menu");
-
-menuToggle?.addEventListener("click", () => {
-	const isOpen = mobileMenu.classList.toggle("is-open");
-	menuToggle.setAttribute("aria-expanded", String(isOpen));
-});
-
-mobileMenu?.querySelectorAll("a").forEach((link) => {
-	link.addEventListener("click", () => {
-		mobileMenu.classList.remove("is-open");
-		menuToggle?.setAttribute("aria-expanded", "false");
-	});
-});
-
-if (!prefersReducedMotion && window.Lenis) {
-	const lenis = new Lenis({
-		duration: 1.1,
-		smoothWheel: true
-	});
-
+if (!reduceMotion && window.Lenis) {
+	const lenis = new Lenis({ duration: 1.05, smoothWheel: true });
 	function raf(time) {
 		lenis.raf(time);
 		requestAnimationFrame(raf);
 	}
-
 	requestAnimationFrame(raf);
 }
 
-if (!prefersReducedMotion && window.gsap) {
+if (!reduceMotion && window.gsap) {
 	gsap.registerPlugin(ScrollTrigger);
 
-	gsap.from(".split-title", {
-		yPercent: 30,
+	gsap.from(".topbar", {
+		y: -20,
 		opacity: 0,
-		duration: 1,
-		ease: "power4.out"
+		duration: 0.7,
+		ease: "power3.out"
 	});
 
-	gsap.utils.toArray(".reveal").forEach((element) => {
-		gsap.from(element, {
+	gsap.from(".hero-main img", {
+		scale: 0.96,
+		opacity: 0,
+		duration: 0.9,
+		ease: "power3.out",
+		delay: 0.1
+	});
+
+	gsap.utils.toArray(".reveal").forEach((item) => {
+		gsap.from(item, {
 			scrollTrigger: {
-				trigger: element,
-				start: "top 86%"
+				trigger: item,
+				start: "top 88%"
 			},
-			y: 34,
+			y: 26,
 			opacity: 0,
-			duration: 0.85,
+			duration: 0.75,
 			ease: "power3.out"
 		});
 	});
-
-	gsap.to(".ticker-track", {
-		xPercent: -50,
-		ease: "none",
-		scrollTrigger: {
-			trigger: ".ticker",
-			start: "top bottom",
-			end: "bottom top",
-			scrub: 0.8
-		}
-	});
-
-	gsap.to(".orbit-dot", {
-		rotate: 360,
-		transformOrigin: "-4rem 6rem",
-		duration: 10,
-		repeat: -1,
-		ease: "none"
-	});
 }
 
-document.querySelectorAll("[data-tilt]").forEach((card) => {
+document.querySelectorAll(".tilt-card").forEach((card) => {
 	card.addEventListener("pointermove", (event) => {
-		if (prefersReducedMotion) return;
+		if (reduceMotion) return;
 		const rect = card.getBoundingClientRect();
 		const x = (event.clientX - rect.left) / rect.width - 0.5;
 		const y = (event.clientY - rect.top) / rect.height - 0.5;
-		card.style.transform = `perspective(900px) rotateX(${y * -6}deg) rotateY(${x * 8}deg)`;
+		card.style.transform = `perspective(1000px) rotateX(${y * -5}deg) rotateY(${x * 7}deg) translateY(-2px)`;
 	});
 
 	card.addEventListener("pointerleave", () => {
