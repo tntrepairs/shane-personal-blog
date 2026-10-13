@@ -190,12 +190,13 @@ img { display: block; max-width: 100%; }
 .hero-project-panel {
 	display: block;
 	position: relative;
-	overflow: hidden;
+	overflow: visible;
 	border-radius: 20px;
 	background: transparent;
 	isolation: isolate;
-	--notch-size: 98px;
 	--button-size: 72px;
+	--notch-radius: 42px;
+	--notch-mask: radial-gradient(circle var(--notch-radius) at calc(100% - 32px) calc(100% - 32px), transparent calc(var(--notch-radius) - 1px), #000 var(--notch-radius));
 }
 
 .hero-photo-card {
@@ -213,6 +214,8 @@ img { display: block; max-width: 100%; }
 	object-fit: cover;
 	border-radius: inherit;
 	filter: saturate(0.96) contrast(1.04);
+	mask-image: var(--notch-mask);
+	-webkit-mask-image: var(--notch-mask);
 }
 
 .hero-project-panel {
@@ -229,24 +232,12 @@ img { display: block; max-width: 100%; }
 	content: "";
 	z-index: 1;
 	pointer-events: none;
+	mask-image: var(--notch-mask);
+	-webkit-mask-image: var(--notch-mask);
 }
 
 .hero-project-panel::before {
 	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.52));
-}
-
-.hero-photo-card::after,
-.hero-project-panel::after {
-	position: absolute;
-	right: 0;
-	bottom: 0;
-	width: var(--notch-size);
-	height: var(--notch-size);
-	border-top-left-radius: var(--notch-size);
-	background: linear-gradient(135deg, #fbf7ef 0%, #f0eadf 100%);
-	content: "";
-	z-index: 3;
-	pointer-events: none;
 }
 
 .hero-pill,
@@ -309,8 +300,8 @@ img { display: block; max-width: 100%; }
 }
 
 .arrow-orb {
-	right: 12px;
-	bottom: 12px;
+	right: -4px;
+	bottom: -4px;
 	display: grid;
 	place-items: center;
 	width: var(--button-size);
