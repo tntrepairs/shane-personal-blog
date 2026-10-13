@@ -190,9 +190,12 @@ img { display: block; max-width: 100%; }
 .hero-project-panel {
 	display: block;
 	position: relative;
+	overflow: hidden;
 	border-radius: 20px;
 	background: transparent;
 	isolation: isolate;
+	--notch-size: 98px;
+	--button-size: 72px;
 }
 
 .hero-photo-card {
@@ -210,7 +213,6 @@ img { display: block; max-width: 100%; }
 	object-fit: cover;
 	border-radius: inherit;
 	filter: saturate(0.96) contrast(1.04);
-	mask-image: radial-gradient(circle 44px at calc(100% - 32px) calc(100% - 32px), transparent 0 43px, #000 44px);
 }
 
 .hero-project-panel {
@@ -218,8 +220,8 @@ img { display: block; max-width: 100%; }
 	color: #fffaf0;
 }
 
-.hero-project-panel::after,
-.hero-photo-card::after {
+.hero-project-panel::before,
+.hero-photo-card::before {
 	position: absolute;
 	inset: 0;
 	border-radius: inherit;
@@ -227,11 +229,24 @@ img { display: block; max-width: 100%; }
 	content: "";
 	z-index: 1;
 	pointer-events: none;
-	mask-image: radial-gradient(circle 44px at calc(100% - 32px) calc(100% - 32px), transparent 0 43px, #000 44px);
 }
 
-.hero-project-panel::after {
+.hero-project-panel::before {
 	background: linear-gradient(to bottom, rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.52));
+}
+
+.hero-photo-card::after,
+.hero-project-panel::after {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: var(--notch-size);
+	height: var(--notch-size);
+	border-top-left-radius: var(--notch-size);
+	background: linear-gradient(135deg, #fbf7ef 0%, #f0eadf 100%);
+	content: "";
+	z-index: 3;
+	pointer-events: none;
 }
 
 .hero-pill,
@@ -294,14 +309,14 @@ img { display: block; max-width: 100%; }
 }
 
 .arrow-orb {
-	right: -4px;
-	bottom: -4px;
+	right: 12px;
+	bottom: 12px;
 	display: grid;
 	place-items: center;
-	width: 72px;
-	height: 72px;
+	width: var(--button-size);
+	height: var(--button-size);
 	border-radius: 50%;
-	background: var(--paper);
+	background: #efe8dc;
 	color: #171713;
 	font-size: 0;
 	line-height: 1;
@@ -508,10 +523,7 @@ img { display: block; max-width: 100%; }
 	background: rgba(255, 255, 255, 0.58);
 }
 
-.hero-project-panel .arrow-orb {
-	width: 72px;
-	height: 72px;
-}
+.hero-project-panel .arrow-orb { width: var(--button-size); height: var(--button-size); }
 .contact-card {
 	position: relative;
 	overflow: hidden;
