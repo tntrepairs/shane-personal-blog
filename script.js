@@ -1,5 +1,12 @@
 const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+const topbar = document.querySelector(".topbar");
+if (topbar) {
+	const updateTopbar = () => topbar.classList.toggle("is-scrolled", window.scrollY > 16);
+	window.addEventListener("scroll", updateTopbar, { passive: true });
+	updateTopbar();
+}
+
 if (!reduceMotion && window.Lenis) {
 	const lenis = new Lenis({ duration: 1.05, smoothWheel: true });
 	function raf(time) {
