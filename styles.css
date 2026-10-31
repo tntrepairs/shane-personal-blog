@@ -224,9 +224,10 @@ img { display: block; max-width: 100%; }
 	background: transparent;
 	isolation: isolate;
 	--button-size: 60px;
-	--notch-radius: 34px;
-	--notch-offset: 28px;
-	--notch-mask: radial-gradient(circle var(--notch-radius) at calc(100% - var(--notch-offset)) calc(100% - var(--notch-offset)), transparent calc(var(--notch-radius) - 1px), #000 var(--notch-radius));
+	--scoop-width: 36px;
+	--scoop-height: 28px;
+	--scoop-inset: 32px;
+	--scoop-mask: radial-gradient(ellipse var(--scoop-width) var(--scoop-height) at calc(100% - var(--scoop-inset)) calc(100% - var(--scoop-inset)), transparent 98%, #000 100%);
 }
 
 .hero-photo-card {
@@ -244,8 +245,8 @@ img { display: block; max-width: 100%; }
 	object-fit: cover;
 	border-radius: inherit;
 	filter: saturate(0.96) contrast(1.04);
-	mask-image: var(--notch-mask);
-	-webkit-mask-image: var(--notch-mask);
+	mask-image: var(--scoop-mask);
+	-webkit-mask-image: var(--scoop-mask);
 }
 
 .hero-project-panel {
@@ -262,8 +263,8 @@ img { display: block; max-width: 100%; }
 	content: "";
 	z-index: 1;
 	pointer-events: none;
-	mask-image: var(--notch-mask);
-	-webkit-mask-image: var(--notch-mask);
+	mask-image: var(--scoop-mask);
+	-webkit-mask-image: var(--scoop-mask);
 }
 
 .hero-project-panel::before {
