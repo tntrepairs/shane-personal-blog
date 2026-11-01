@@ -989,7 +989,7 @@ img { display: block; max-width: 100%; }
 	.topbar > .dark-btn { min-height: 40px; padding-inline: 20px; font-size: 12px; }
 	.hero { padding-top: 10px; padding-bottom: 18px; }
 	.story-rail { gap: 24px; }
-	.hero-photo-card { height: clamp(230px, 38vh, 326px); }
+	.hero-photo-card { height: clamp(220px, calc((100svh - 230px) / 2), 326px); }
 	.hero-project-panel { height: clamp(230px, 29vh, 280px); }
 	.hero-photo-frame { height: clamp(340px, 48vh, 450px); }
 	.hero-copy { margin-top: -68px; }
