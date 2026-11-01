@@ -327,8 +327,8 @@ img { display: block; max-width: 100%; }
 }
 
 .arrow-orb {
-	right: -2px;
-	bottom: -2px;
+	right: -4px;
+	bottom: -4px;
 	display: grid;
 	place-items: center;
 	width: var(--button-size);
