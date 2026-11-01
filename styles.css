@@ -223,7 +223,7 @@ img { display: block; max-width: 100%; }
 	border-radius: 20px;
 	background: transparent;
 	isolation: isolate;
-	--button-size: 60px;
+	--button-size: 52px;
 }
 
 .hero-photo-card {
@@ -327,8 +327,8 @@ img { display: block; max-width: 100%; }
 }
 
 .arrow-orb {
-	right: -4px;
-	bottom: -4px;
+	right: 4px;
+	bottom: 4px;
 	display: grid;
 	place-items: center;
 	width: var(--button-size);
