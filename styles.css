@@ -26,12 +26,8 @@ button { font: inherit; }
 img { display: block; max-width: 100%; }
 
 .page-shell {
-	width: min(1590px, 91.7vw);
+	width: calc(100% - clamp(48px, 4vw, 80px));
 	margin: clamp(24px, 5vh, 48px) auto 70px;
-}
-
-@media (min-width: 1600px) {
-	.page-shell { width: min(1840px, 95.4vw); }
 }
 
 .dashboard-card {
@@ -50,7 +46,7 @@ img { display: block; max-width: 100%; }
 	align-items: center;
 	gap: 14px;
 	width: 100%;
-	min-height: clamp(84px, 5.8vw, 100px);
+	min-height: clamp(60px, 8dvh, 110px);
 	padding: 12px 28px;
 	margin: 0 auto -2px;
 	border: 1px solid transparent;
@@ -66,7 +62,7 @@ img { display: block; max-width: 100%; }
 .topbar.is-scrolled {
 	top: 12px;
 	width: calc(100% - 32px);
-	min-height: clamp(84px, 5.8vw, 100px);
+	min-height: clamp(60px, 8dvh, 110px);
 	margin: 0 auto -2px;
 	border: 1px solid rgba(255, 255, 255, 0.58);
 	border-radius: 999px;
@@ -202,11 +198,14 @@ img { display: block; max-width: 100%; }
 .quick-links .icon-btn:nth-child(3)::before { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23181815'%3E%3Cpath d='M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.86 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.4v1.56h.05c.47-.9 1.63-1.85 3.35-1.85 3.58 0 4.24 2.36 4.24 5.43v6.31ZM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12ZM7.12 20.45H3.56V9h3.56v11.45Z'/%3E%3C/svg%3E"); }
 
 .hero {
+	--hero-card-height: clamp(220px, min(16.5vw, 36dvh, 480px), 480px);
+	--hero-card-gap: clamp(16px, 2dvh, 24px);
+	--hero-portrait-height: clamp(320px, min(50dvh, calc(var(--hero-card-height) * 1.3)), 560px);
 	display: grid;
 	grid-template-columns: minmax(0, 303fr) minmax(0, 580fr) minmax(0, 313fr);
 	align-items: start;
-	gap: 24px;
-	padding: 16px clamp(38px, 2.8vw, 48px) 26px clamp(49px, 3.5vw, 61px);
+	gap: clamp(16px, 1.3vw, 24px);
+	padding: clamp(10px, 1.2dvh, 14px) clamp(38px, 2.8vw, 48px) clamp(12px, 1.6dvh, 18px) clamp(49px, 3.5vw, 61px);
 	border-radius: 0 0 18px 18px;
 }
 
@@ -216,7 +215,7 @@ img { display: block; max-width: 100%; }
 
 .story-rail {
 	display: grid;
-	gap: clamp(24px, 1.75vw, 30px);
+	gap: var(--hero-card-gap);
 }
 
 .hero-photo-card,
@@ -231,7 +230,7 @@ img { display: block; max-width: 100%; }
 }
 
 .hero-photo-card {
-	height: clamp(224px, 33vh, 326px);
+	height: var(--hero-card-height);
 	color: #fffaf0;
 }
 
@@ -250,7 +249,7 @@ img { display: block; max-width: 100%; }
 }
 
 .hero-project-panel {
-	height: clamp(240px, 35vh, 365px);
+	height: var(--hero-card-height);
 	color: #fffaf0;
 }
 
@@ -315,7 +314,7 @@ img { display: block; max-width: 100%; }
 	right: 96px;
 	bottom: 58px;
 	color: #fffaf0;
-	font-size: clamp(24px, 1.6vw, 28px);
+	font-size: clamp(22px, 1.4vw, 27px);
 	font-weight: 500;
 	line-height: 1.02;
 	letter-spacing: -0.035em;
@@ -326,7 +325,7 @@ img { display: block; max-width: 100%; }
 	right: 96px;
 	bottom: 20px;
 	color: rgba(255, 250, 240, 0.92);
-	font-size: clamp(12px, 0.8vw, 14px);
+	font-size: clamp(12px, 0.75vw, 14px);
 	line-height: 1.18;
 }
 
@@ -348,9 +347,6 @@ img { display: block; max-width: 100%; }
 	isolation: isolate;
 	transition: background 240ms ease, box-shadow 240ms ease;
 }
-
-.hero-photo-card .arrow-orb,
-.hero-project-panel .arrow-orb { visibility: hidden; }
 
 .arrow-orb::before {
 	display: none;
@@ -384,7 +380,7 @@ img { display: block; max-width: 100%; }
 .hero-photo-frame {
 	overflow: hidden;
 	border-radius: 20px;
-	height: clamp(340px, 50vh, 510px);
+	height: var(--hero-portrait-height);
 	background: #ddd5c8;
 }
 
@@ -400,7 +396,7 @@ img { display: block; max-width: 100%; }
 .hero-copy {
 	position: relative;
 	z-index: 3;
-	margin-top: -74px;
+	margin-top: clamp(-78px, -8dvh, -52px);
 	max-width: 100%;
 	margin-right: 22px;
 	padding: 30px 24px 0 0;
@@ -421,7 +417,7 @@ img { display: block; max-width: 100%; }
 
 .hero h1 {
 	margin: 0;
-	font-size: clamp(40px, 4vw, 68px);
+	font-size: clamp(38px, 3.5vw, 64px);
 	line-height: 0.98;
 	letter-spacing: -0.055em;
 	white-space: nowrap;
@@ -451,7 +447,7 @@ img { display: block; max-width: 100%; }
 	gap: 18px;
 	margin: 18px 0 0;
 	color: var(--ink);
-	font-size: clamp(28px, 2vw, 34px);
+	font-size: clamp(22px, 1.6vw, 31px);
 	line-height: 1.12;
 	letter-spacing: -0.035em;
 }
@@ -505,19 +501,19 @@ img { display: block; max-width: 100%; }
 .hero-aside {
 	display: flex;
 	flex-direction: column;
-	gap: 32px;
+	gap: clamp(18px, 2.5dvh, 26px);
 }
 
 .hero-aside > p {
 	margin: 12px 0 0;
 	color: var(--muted);
-	font-size: clamp(16px, 1.1vw, 19px);
+	font-size: clamp(15px, 0.95vw, 18px);
 	line-height: 1.55;
 }
 
 .quick-links { display: flex; align-items: center; gap: 8px; flex-wrap: nowrap; }
-.quick-links .dark-btn { min-height: clamp(44px, 3vw, 52px); padding: 0 clamp(18px, 1.3vw, 24px); font-size: clamp(13px, 0.9vw, 16px); font-weight: 500; }
-.quick-links .icon-btn { width: clamp(42px, 2.9vw, 50px); height: clamp(42px, 2.9vw, 50px); }
+.quick-links .dark-btn { min-height: clamp(40px, 2.6vw, 50px); padding: 0 clamp(12px, 1.1vw, 20px); font-size: clamp(12px, 0.8vw, 15px); font-weight: 500; }
+.quick-links .icon-btn { width: clamp(36px, 2.4vw, 46px); height: clamp(36px, 2.4vw, 46px); }
 .quick-links .icon-btn:nth-child(2)::before,
 .quick-links .icon-btn:nth-child(3)::before { display: none; }
 .quick-links .icon-btn svg { display: block; width: 18px; height: 18px; fill: currentColor; }
@@ -931,6 +927,8 @@ img { display: block; max-width: 100%; }
 	}
 	.hero { padding: 28px 20px; }
 	.story-rail { grid-template-columns: 1fr 1fr; }
+	.hero-photo-card { height: clamp(224px, 30vh, 326px); }
+	.hero-project-panel { height: clamp(240px, 34vh, 365px); }
 	.hero-photo-frame { height: 360px; }
 	.hero-photo-frame > img { height: 100%; }
 	.hero-copy { margin-right: 18px; }
@@ -981,31 +979,36 @@ img { display: block; max-width: 100%; }
 	.contact-card { min-height: 220px; }
 }
 
-@media (min-width: 981px) and (max-height: 900px) {
-	.page-shell { margin-top: clamp(20px, 4.5vh, 40px); }
+@media (min-width: 981px) and (max-height: 1000px) {
+	.page-shell { margin-top: clamp(12px, 2.5dvh, 24px); }
 	.topbar,
-	.topbar.is-scrolled { min-height: 78px; }
-	.nav-pill a { padding-inline: 22px; font-size: 14px; }
-	.topbar > .dark-btn { min-height: 40px; padding-inline: 20px; font-size: 12px; }
-	.hero { padding-top: 10px; padding-bottom: 18px; }
-	.story-rail { gap: 24px; }
-	.hero-photo-card { height: clamp(220px, calc((100svh - 230px) / 2), 326px); }
-	.hero-project-panel { height: clamp(230px, 29vh, 280px); }
-	.hero-photo-frame { height: clamp(340px, 48vh, 450px); }
-	.hero-copy { margin-top: -68px; }
-	.hero h1 { font-size: clamp(40px, 3.6vw, 60px); }
-	.hero-copy p { font-size: clamp(24px, 1.8vw, 30px); }
-	.hero-photo-card strong { font-size: clamp(22px, 1.45vw, 25px); }
-	.hero-photo-card small { font-size: 12px; }
-	.hero-aside { gap: 24px; }
-	.hero-aside > p { font-size: clamp(15px, 1vw, 17px); }
-	.quick-links .dark-btn { min-height: 44px; padding-inline: 18px; font-size: 13px; }
-	.quick-links .icon-btn { width: 42px; height: 42px; }
-	.quick-links + .hero-project-panel { margin-top: clamp(10px, 2vh, 18px); }
-	.hero-project-panel .project-logo {
-		left: 18px;
-		width: min(150px, calc(100% - 36px));
+	.topbar.is-scrolled { min-height: clamp(52px, 8dvh, 90px); }
+	.nav-pill a { padding-inline: clamp(18px, 1.5vw, 24px); font-size: clamp(13px, 0.8vw, 15px); }
+	.topbar > .dark-btn { min-height: 40px; padding-inline: 18px; font-size: 12px; }
+	.hero {
+		--hero-card-gap: clamp(14px, 1.8dvh, 22px);
+		padding-top: clamp(8px, 1dvh, 12px);
+		padding-bottom: clamp(12px, 1.5dvh, 16px);
 	}
+	.hero-copy { margin-top: clamp(-72px, -8dvh, -48px); }
+	.hero h1 { font-size: clamp(38px, 3.5vw, 60px); }
+	.hero-copy p { font-size: clamp(22px, 1.6vw, 30px); }
+	.hero-photo-card strong { font-size: clamp(21px, 1.35vw, 25px); }
+	.hero-photo-card small { font-size: clamp(12px, 0.75vw, 14px); }
+	.hero-aside { gap: clamp(16px, 2.2dvh, 22px); }
+	.hero-aside > p { font-size: clamp(15px, 0.9vw, 17px); }
+	.quick-links .dark-btn { min-height: 40px; padding-inline: 12px; font-size: 12px; }
+	.quick-links .icon-btn { width: 36px; height: 36px; }
+	.hero-photo-card,
+	.hero-project-panel { --button-size: clamp(36px, 2.3vw, 44px); }
+	.arrow-orb { right: 4px; bottom: 4px; }
+	.quick-links + .hero-project-panel { margin-top: clamp(10px, 2dvh, 18px); }
+	.hero-project-panel .project-logo {
+		left: 16px;
+		width: min(136px, calc(100% - 32px));
+	}
+	.hero-project-panel .br-logo { top: 20%; }
+	.hero-project-panel .df-logo { bottom: 2%; }
 }
 
 @media (prefers-reduced-motion: reduce) {
