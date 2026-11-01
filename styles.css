@@ -345,6 +345,9 @@ img { display: block; max-width: 100%; }
 	transition: background 240ms ease, box-shadow 240ms ease;
 }
 
+.hero-photo-card .arrow-orb,
+.hero-project-panel .arrow-orb { visibility: hidden; }
+
 .arrow-orb::before {
 	display: none;
 }
