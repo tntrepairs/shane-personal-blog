@@ -30,6 +30,10 @@ img { display: block; max-width: 100%; }
 	margin: clamp(24px, 5vh, 48px) auto 70px;
 }
 
+@media (min-width: 1600px) {
+	.page-shell { width: min(1840px, 95.4vw); }
+}
+
 .dashboard-card {
 	background: linear-gradient(135deg, #fbf7ef 0%, #f0eadf 100%);
 	border: 1px solid rgba(255, 255, 255, 0.55);
@@ -978,8 +982,26 @@ img { display: block; max-width: 100%; }
 }
 
 @media (min-width: 981px) and (max-height: 900px) {
-	.hero-copy { margin-top: -88px; }
-	.quick-links + .hero-project-panel { margin-top: clamp(16px, 3.2vh, 30px); }
+	.page-shell { margin-top: clamp(20px, 4.5vh, 40px); }
+	.topbar,
+	.topbar.is-scrolled { min-height: 78px; }
+	.nav-pill a { padding-inline: 22px; font-size: 14px; }
+	.topbar > .dark-btn { min-height: 40px; padding-inline: 20px; font-size: 12px; }
+	.hero { padding-top: 10px; padding-bottom: 18px; }
+	.story-rail { gap: 24px; }
+	.hero-photo-card { height: clamp(230px, 38vh, 326px); }
+	.hero-project-panel { height: clamp(230px, 29vh, 280px); }
+	.hero-photo-frame { height: clamp(340px, 48vh, 450px); }
+	.hero-copy { margin-top: -68px; }
+	.hero h1 { font-size: clamp(40px, 3.6vw, 60px); }
+	.hero-copy p { font-size: clamp(24px, 1.8vw, 30px); }
+	.hero-photo-card strong { font-size: clamp(22px, 1.45vw, 25px); }
+	.hero-photo-card small { font-size: 12px; }
+	.hero-aside { gap: 24px; }
+	.hero-aside > p { font-size: clamp(15px, 1vw, 17px); }
+	.quick-links .dark-btn { min-height: 44px; padding-inline: 18px; font-size: 13px; }
+	.quick-links .icon-btn { width: 42px; height: 42px; }
+	.quick-links + .hero-project-panel { margin-top: clamp(10px, 2vh, 18px); }
 	.hero-project-panel .project-logo {
 		left: 18px;
 		width: min(150px, calc(100% - 36px));
