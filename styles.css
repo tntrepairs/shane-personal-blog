@@ -946,11 +946,11 @@ img { display: block; max-width: 100%; }
 @media (max-width: 560px) {
 	.page-shell { width: 100%; margin: 0; }
 	.dashboard-card { border-radius: 0; }
-	.topbar { top: 0; position: sticky; grid-template-columns: 1fr auto; gap: 8px; width: 100%; min-height: 0; padding: 8px 10px; margin: 0 auto -2px; border-radius: 16px 16px 0 0; }
+	.topbar { top: 0; position: sticky; grid-template-columns: minmax(0, 1fr) auto; gap: 8px; width: 100%; min-height: 0; padding: 8px 10px; margin: 0 auto -2px; border-radius: 16px 16px 0 0; }
 	.topbar.is-scrolled { top: 8px; width: calc(100% - 16px); margin: 0 auto -2px; border-radius: 22px; }
 	.logo { gap: 8px; font-size: 20px; }
 	.logo img { width: 34px; height: 34px; }
-	.topbar > .dark-btn { justify-self: start; }
+	.topbar > .dark-btn { position: absolute; top: 8px; right: 10px; min-height: 36px; padding-inline: 12px; font-size: 12px; white-space: nowrap; }
 	.nav-pill { gap: 1px; padding: 4px; }
 	.nav-pill a { padding: 10px 16px; font-size: 13px; }
 	.hero { grid-template-columns: 1fr; gap: 18px; }
