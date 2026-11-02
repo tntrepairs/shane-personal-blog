@@ -69,6 +69,60 @@ if (editorialClipDefs && editorialCards.length) {
 	if (!observer) window.addEventListener("resize", () => editorialCards.forEach(updateEditorialClip), { passive: true });
 }
 
+const previewItems = {
+	journey: {
+		title: "My Journey at BAC",
+		description: "Studying Business Intelligence and Data Analytics at Botswana Accountancy College.",
+		image: "assets/hero-custom/bac-facade.webp"
+	},
+	experience: {
+		title: "Experience",
+		description: "Debt collection, legal internship and research leadership from the portfolio.",
+		image: "assets/hero-custom/coding-laptop.webp"
+	},
+	projects: {
+		title: "Featured projects",
+		description: "BorderReady logistics and Debtflow Pro debt management projects.",
+		image: "assets/hero-custom/project-bg.webp"
+	}
+};
+
+const previewPanel = document.querySelector("#hero-preview");
+const previewButtons = [...document.querySelectorAll(".preview-dot")];
+const previewClose = previewPanel?.querySelector(".hero-preview-close");
+let lastPreviewButton = null;
+
+const closePreview = ({ restoreFocus = false } = {}) => {
+	if (!previewPanel || previewPanel.hidden) return;
+	previewPanel.hidden = true;
+	previewButtons.forEach((button) => button.setAttribute("aria-expanded", "false"));
+	if (restoreFocus) lastPreviewButton?.focus();
+};
+
+previewButtons.forEach((button) => {
+	button.addEventListener("click", () => {
+		if (!previewPanel) return;
+		if (!previewPanel.hidden && button.getAttribute("aria-expanded") === "true") {
+			closePreview();
+			return;
+		}
+
+		const item = previewItems[button.dataset.preview];
+		if (!item) return;
+		lastPreviewButton = button;
+		previewPanel.querySelector(".hero-preview-image").src = item.image;
+		previewPanel.querySelector(".hero-preview-title").textContent = item.title;
+		previewPanel.querySelector(".hero-preview-description").textContent = item.description;
+		previewButtons.forEach((candidate) => candidate.setAttribute("aria-expanded", String(candidate === button)));
+		previewPanel.hidden = false;
+	});
+});
+
+previewClose?.addEventListener("click", () => closePreview({ restoreFocus: true }));
+document.addEventListener("keydown", (event) => {
+	if (event.key === "Escape") closePreview({ restoreFocus: true });
+});
+
 const topbar = document.querySelector(".topbar");
 if (topbar) {
 	const updateTopbar = () => topbar.classList.toggle("is-scrolled", window.scrollY > 16);
