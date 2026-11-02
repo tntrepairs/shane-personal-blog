@@ -226,8 +226,10 @@ img { display: block; max-width: 100%; }
 	border-radius: 20px;
 	background: transparent;
 	isolation: isolate;
-	--button-size: clamp(52px, calc(var(--hero-card-height) * 0.24), 70px);
-	--button-inset: clamp(4px, calc(var(--button-size) * 0.075), 6px);
+	--button-size: 56px;
+	--button-inset: 16px;
+	--cutout-shelf: 16px;
+	--cutout-fillet: 14px;
 }
 
 .hero-photo-card {
@@ -245,8 +247,8 @@ img { display: block; max-width: 100%; }
 	object-fit: cover;
 	border-radius: inherit;
 	filter: saturate(0.96) contrast(1.04);
-	clip-path: url(#editorial-card-scoop);
-	-webkit-clip-path: url(#editorial-card-scoop);
+	clip-path: var(--editorial-card-clip);
+	-webkit-clip-path: var(--editorial-card-clip);
 }
 
 .hero-project-panel {
@@ -263,8 +265,8 @@ img { display: block; max-width: 100%; }
 	content: "";
 	z-index: 1;
 	pointer-events: none;
-	clip-path: url(#editorial-card-scoop);
-	-webkit-clip-path: url(#editorial-card-scoop);
+	clip-path: var(--editorial-card-clip);
+	-webkit-clip-path: var(--editorial-card-clip);
 }
 
 .hero-project-panel::before {
@@ -1007,6 +1009,26 @@ img { display: block; max-width: 100%; }
 	}
 	.hero-project-panel .br-logo { top: 20%; }
 	.hero-project-panel .df-logo { bottom: 2%; }
+}
+
+@media (max-width: 1100px) {
+	.hero-photo-card,
+	.hero-project-panel {
+		--button-size: 46px;
+		--button-inset: 12px;
+		--cutout-shelf: 14px;
+		--cutout-fillet: 12px;
+	}
+}
+
+@media (max-width: 560px) {
+	.hero-photo-card,
+	.hero-project-panel {
+		--button-size: 42px;
+		--button-inset: 10px;
+		--cutout-shelf: 12px;
+		--cutout-fillet: 12px;
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {
