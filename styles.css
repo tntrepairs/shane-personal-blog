@@ -226,7 +226,8 @@ img { display: block; max-width: 100%; }
 	border-radius: 20px;
 	background: transparent;
 	isolation: isolate;
-	--button-size: 52px;
+	--button-size: clamp(52px, calc(var(--hero-card-height) * 0.24), 70px);
+	--button-inset: clamp(4px, calc(var(--button-size) * 0.075), 6px);
 }
 
 .hero-photo-card {
@@ -330,8 +331,8 @@ img { display: block; max-width: 100%; }
 }
 
 .arrow-orb {
-	right: 4px;
-	bottom: 4px;
+	right: var(--button-inset);
+	bottom: var(--button-inset);
 	display: grid;
 	place-items: center;
 	width: var(--button-size);
@@ -999,9 +1000,6 @@ img { display: block; max-width: 100%; }
 	.hero-aside > p { font-size: clamp(15px, 0.9vw, 17px); }
 	.quick-links .dark-btn { min-height: 40px; padding-inline: 12px; font-size: 12px; }
 	.quick-links .icon-btn { width: 36px; height: 36px; }
-	.hero-photo-card,
-	.hero-project-panel { --button-size: clamp(36px, 2.3vw, 44px); }
-	.arrow-orb { right: 4px; bottom: 4px; }
 	.quick-links + .hero-project-panel { margin-top: clamp(10px, 2dvh, 18px); }
 	.hero-project-panel .project-logo {
 		left: 16px;
