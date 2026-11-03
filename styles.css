@@ -706,18 +706,28 @@ img { display: block; max-width: 100%; }
 	margin: 0;
 }
 
-.experience-list p::before {
-	position: absolute;
-	left: 0;
-	top: 0;
-	display: grid;
-	place-items: center;
-	width: 36px;
-	height: 36px;
-	border: 1px solid var(--line);
-	border-radius: 50%;
-	background: #fffaf0;
-	content: "▣";
+/* Section 02 uses a clean photo and distinct, selectable experience rows. */
+#experience .experience-list { gap: 16px; }
+#experience .experience-item { display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 12px; align-items: center; min-width: 0; }
+#experience .experience-icon { display: grid; place-items: center; width: 36px; height: 36px; border: 1px solid var(--line); border-radius: 50%; background: #fffaf0; }
+#experience .experience-icon svg { display: block; width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 1.55; stroke-linecap: round; stroke-linejoin: round; }
+#experience .experience-item > div { display: grid; gap: 3px; }
+#experience .experience-item b { font-size: 14px; font-weight: 650; line-height: 1.3; }
+#experience .experience-item span:not(.experience-icon) { color: var(--muted); font-size: 13px; line-height: 1.35; }
+#experience .dark-btn { display: inline-flex; align-items: center; gap: 14px; min-height: 40px; padding: 10px 16px; font-size: 13px; font-weight: 600; box-shadow: none; }
+#experience .dark-btn svg { display: block; flex: 0 0 18px; }
+#experience-details { scroll-margin-top: 120px; }
+
+@media (min-width: 981px) {
+	#experience { grid-template-columns: minmax(250px, .9fr) minmax(280px, 1fr) minmax(270px, .9fr); align-items: center; gap: clamp(28px, 3vw, 46px); padding: 30px 34px 38px; margin-top: 0; border-top: 0; border-radius: 0 0 18px 18px; box-shadow: none; }
+	#experience .experience-photo { display: block; width: 100%; height: clamp(210px, 17vw, 270px); object-fit: cover; object-position: center; border-radius: 14px; filter: saturate(.72) contrast(1.02); }
+	#experience .number { margin-bottom: 12px; font-size: 13px; font-weight: 600; }
+	#experience h2 { font-size: clamp(32px, 2.8vw, 40px); font-weight: 500; line-height: 1.08; letter-spacing: -.045em; }
+	#experience h3 { max-width: 310px; margin: 12px 0 14px; font-size: 16px; font-weight: 400; line-height: 1.45; }
+	#experience .section-copy p { max-width: 360px; margin: 0 0 18px; font-size: 14px; line-height: 1.55; }
+	#experience .experience-list { gap: 17px; }
+	#experience .experience-item { grid-template-columns: 34px minmax(0, 1fr); gap: 12px; }
+	#experience .experience-icon { width: 34px; height: 34px; }
 }
 
 .stacked {
