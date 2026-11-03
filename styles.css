@@ -671,6 +671,30 @@ img { display: block; max-width: 100%; }
 
 .wide-photo { height: 300px; }
 
+/* About: independent photograph and selectable, semantic information panel. */
+#about .info-card { margin: 0; }
+#about .info-row { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 12px; align-items: start; }
+#about .info-icon { width: 32px; height: 32px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: #fcfaf5; }
+#about .info-icon svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+#about dt { font-size: 14px; font-weight: 650; line-height: 1.4; }
+#about dd { margin: 3px 0 0; color: var(--muted); font-size: 13px; line-height: 1.4; }
+#about .dark-btn { gap: 18px; min-height: 40px; padding: 10px 18px; font-size: 13px; font-weight: 600; box-shadow: none; }
+#about .dark-btn svg { flex: 0 0 18px; }
+
+@media (min-width: 981px) {
+	#about { position: relative; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: 40px; padding: 34px; margin-top: 28px; border-radius: 18px 18px 0 0; box-shadow: none; }
+	#about::after { content: ""; position: absolute; bottom: 0; left: 34px; right: 34px; height: 1px; background: var(--line); }
+	/* Join only the exterior seam; the following section's contents are unchanged. */
+	#about + #experience { margin-top: 0; border-top: 0; border-top-left-radius: 0; border-top-right-radius: 0; }
+	#about .number { margin-bottom: 12px; font-size: 13px; font-weight: 600; }
+	#about h2 { font-size: clamp(36px, 3.2vw, 46px); font-weight: 500; line-height: 1.08; letter-spacing: -.045em; }
+	#about h3 { max-width: 390px; margin: 14px 0 18px; font-size: 17px; font-weight: 400; line-height: 1.45; }
+	#about .section-copy p { max-width: 440px; margin: 0 0 22px; font-size: 15px; line-height: 1.6; }
+	#about .photo-panel { height: clamp(350px, 28vw, 420px); min-height: 0; }
+	#about .photo-panel > img { display: block; height: 100%; object-position: 35% center; border-radius: 16px; filter: none; }
+	#about .info-card { position: absolute; top: 18px; right: 18px; bottom: 18px; width: min(280px, 44%); padding: 22px 20px; display: grid; align-content: space-between; gap: 16px; border-radius: 14px; border: 1px solid rgba(255,255,255,.7); background: #f8f5ee; box-shadow: 0 6px 20px rgba(24,24,21,.09); backdrop-filter: none; }
+}
+
 .experience-list {
 	display: grid;
 	gap: 18px;
