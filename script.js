@@ -31,6 +31,19 @@ if (editorialClipDefs && editorialCards.length) {
 		const upperStartY = mainStartY - smallRadius;
 		const mainControl = mainRadius * arcTangent;
 		const filletControl = smallRadius * arcTangent;
+		// Balance clearance from the curved photo edge and both outer card edges.
+		// The clip stays unchanged; only the independent circle's inset adapts.
+		let low = 0;
+		let high = inset;
+		const radius = button / 2;
+		for (let step = 0; step < 20; step++) {
+			const gap = (low + high) / 2;
+			const dx = width - gap - radius - mainStartX;
+			const dy = height - gap - radius - mainEndY;
+			if (Math.hypot(dx, dy) + radius + gap <= mainRadius) low = gap;
+			else high = gap;
+		}
+		card.style.setProperty("--orb-offset", `${round(low)}px`);
 		const pathData = [
 			`M ${round(outer)} 0`,
 			`H ${round(width - outer)}`,
@@ -73,17 +86,20 @@ const previewItems = {
 	journey: {
 		title: "My Journey at BAC",
 		description: "Studying Business Intelligence and Data Analytics at Botswana Accountancy College.",
-		image: "assets/hero-custom/bac-facade.webp"
+		image: "assets/hero-custom/bac-facade.webp",
+		href: "#about", action: "Explore my journey"
 	},
 	experience: {
 		title: "Experience",
 		description: "Debt collection, legal internship and research leadership from the portfolio.",
-		image: "assets/hero-custom/coding-laptop.webp"
+		image: "assets/hero-custom/coding-laptop.webp",
+		href: "#experience", action: "Explore experience"
 	},
 	projects: {
 		title: "Featured projects",
 		description: "BorderReady logistics and Debtflow Pro debt management projects.",
-		image: "assets/hero-custom/project-bg.webp"
+		image: "assets/hero-custom/project-bg.webp",
+		href: "#projects", action: "Explore projects"
 	}
 };
 
@@ -91,32 +107,86 @@ const previewPanel = document.querySelector("#hero-preview");
 const previewButtons = [...document.querySelectorAll(".preview-dot")];
 const previewClose = previewPanel?.querySelector(".hero-preview-close");
 let lastPreviewButton = null;
+let previewPinned = false;
+let previewTimer;
+let restoringPreviewFocus = false;
+const previewRow = document.querySelector(".hero-proof-row");
+
+const openPreview = (button) => {
+	clearTimeout(previewTimer);
+	const item = previewItems[button.dataset.preview];
+	if (!previewPanel || !item) return;
+	const changed = previewPanel.hidden || lastPreviewButton !== button;
+	lastPreviewButton = button;
+	previewPanel.querySelector(".hero-preview-image").src = item.image;
+	previewPanel.querySelector(".hero-preview-title").textContent = item.title;
+	previewPanel.querySelector(".hero-preview-description").textContent = item.description;
+	const link = previewPanel.querySelector(".hero-preview-link");
+	link.href = item.href;
+	link.textContent = item.action;
+	previewButtons.forEach((candidate) => candidate.setAttribute("aria-expanded", String(candidate === button)));
+	previewPanel.hidden = false;
+	if (changed && !reduceMotion) {
+		previewPanel.getAnimations().forEach((animation) => animation.cancel());
+		previewPanel.animate([{ opacity: 0, transform: "translateY(4px)" }, { opacity: 1, transform: "translateY(0)" }], { duration: 180, easing: "ease-out" });
+	}
+};
 
 const closePreview = ({ restoreFocus = false } = {}) => {
 	if (!previewPanel || previewPanel.hidden) return;
 	previewPanel.hidden = true;
+	previewPinned = false;
+	clearTimeout(previewTimer);
 	previewButtons.forEach((button) => button.setAttribute("aria-expanded", "false"));
-	if (restoreFocus) lastPreviewButton?.focus();
+	if (restoreFocus) {
+		restoringPreviewFocus = true;
+		lastPreviewButton?.focus({ preventScroll: true });
+		restoringPreviewFocus = false;
+	}
 };
 
 previewButtons.forEach((button) => {
 	button.addEventListener("click", () => {
 		if (!previewPanel) return;
-		if (!previewPanel.hidden && button.getAttribute("aria-expanded") === "true") {
+		if (previewPinned && !previewPanel.hidden && button === lastPreviewButton) {
 			closePreview();
 			return;
 		}
 
-		const item = previewItems[button.dataset.preview];
-		if (!item) return;
-		lastPreviewButton = button;
-		previewPanel.querySelector(".hero-preview-image").src = item.image;
-		previewPanel.querySelector(".hero-preview-title").textContent = item.title;
-		previewPanel.querySelector(".hero-preview-description").textContent = item.description;
-		previewButtons.forEach((candidate) => candidate.setAttribute("aria-expanded", String(candidate === button)));
-		previewPanel.hidden = false;
+		previewPinned = true;
+		openPreview(button);
+	});
+	button.addEventListener("pointerenter", (event) => {
+		if (event.pointerType === "mouse" && !previewPinned) openPreview(button);
+	});
+	button.addEventListener("focus", () => {
+		if (!restoringPreviewFocus) openPreview(button);
+	});
+	button.addEventListener("keydown", (event) => {
+		if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+		event.preventDefault();
+		const current = previewButtons.indexOf(button);
+		const index = event.key === "Home" ? 0 : event.key === "End" ? previewButtons.length - 1 :
+			(current + (event.key === "ArrowRight" ? 1 : -1) + previewButtons.length) % previewButtons.length;
+		previewButtons[index].focus();
 	});
 });
+
+previewRow?.addEventListener("pointerenter", () => clearTimeout(previewTimer));
+previewRow?.addEventListener("pointerleave", () => {
+	if (!previewPinned) previewTimer = setTimeout(() => {
+		if (!previewRow.contains(document.activeElement)) closePreview();
+	}, 180);
+});
+previewRow?.addEventListener("focusout", () => {
+	queueMicrotask(() => {
+		if (!previewPinned && !previewRow.contains(document.activeElement)) closePreview();
+	});
+});
+document.addEventListener("pointerdown", (event) => {
+	if (!previewRow?.contains(event.target)) closePreview();
+});
+previewPanel?.querySelector(".hero-preview-link").addEventListener("click", () => closePreview());
 
 previewClose?.addEventListener("click", () => closePreview({ restoreFocus: true }));
 document.addEventListener("keydown", (event) => {
