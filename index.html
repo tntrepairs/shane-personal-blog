@@ -159,19 +159,32 @@
 					</div>
 				</section>
 
-				<section class="dashboard-card stacked" id="projects">
-					<div class="section-head reveal">
-						<div><span class="number">03</span><h2>Featured Projects</h2><p>Real projects, real impact. A mix of development, problem solving and collaboration.</p></div>
-						<div class="arrow-pair"><button>‹</button><button>›</button></div>
+				<section class="dashboard-card stacked" id="projects" aria-labelledby="projects-heading">
+					<div class="section-head projects-header reveal">
+						<div><span class="number">03</span><h2 id="projects-heading">Featured Projects</h2><p>Real projects, real impact. A mix of development, problem solving and collaboration.</p></div>
+						<div class="project-navigation" aria-label="Project navigation">
+							<button type="button" disabled aria-label="Previous projects — all projects are shown" title="All projects are shown"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5m7-7-7 7 7 7"/></svg></button>
+							<button type="button" disabled aria-label="Next projects — all projects are shown" title="All projects are shown"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14m-7-7 7 7-7 7"/></svg></button>
+						</div>
 					</div>
 					<div class="project-grid">
-						<article class="project-card dark-project reveal tilt-card" style="--project-bg: url('assets/shane_exact_assets/cuts/borderready_black_truck_reference.webp')">
-							<div><h3>BorderReady</h3><span>Logistics</span><span>Web App</span><span>B2B</span><p>A customs document preparation system for clearing agents, designed to simplify and speed up border processes.</p><a class="light-btn" href="#">View Project <span>↗</span></a></div>
-							<img src="assets/shane_exact_assets/logos/borderready_logo_transparent.webp" alt="BorderReady logo" />
+						<article class="featured-project-card reveal" aria-labelledby="borderready-title">
+							<div class="project-content">
+								<h3 class="project-title" id="borderready-title">BorderReady</h3>
+								<ul class="project-categories" aria-label="BorderReady categories"><li>Logistics</li><li>Web App</li><li>B2B</li></ul>
+								<p class="project-description">A customs document preparation system for clearing agents, designed to simplify and speed up border processes.</p>
+								<div class="project-action-row"><button class="project-action" type="button" disabled aria-describedby="borderready-link-status">View Project <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></button><span class="project-link-status" id="borderready-link-status">Link pending</span></div>
+							</div>
+							<div class="project-artwork project-artwork--truck" aria-hidden="true"><span class="project-watermark">BR</span><img class="project-truck" src="assets/projects/borderready-truck.svg" alt="" width="250" height="160" loading="lazy" decoding="async" /></div>
 						</article>
-						<article class="project-card dark-project reveal tilt-card" style="--project-bg: url('assets/shane_exact_assets/cuts/debtflowpro_black_reference.webp')">
-							<div><h3>Debtflow Pro</h3><span>Finance</span><span>Web App</span><span>Analytics</span><p>A debt management and collections system designed to improve workflow, tracking and reporting.</p><a class="light-btn" href="#">View Project <span>↗</span></a></div>
-							<img src="assets/shane_exact_assets/logos/debtflowpro_logo_transparent.webp" alt="Debtflow Pro logo" />
+						<article class="featured-project-card reveal" aria-labelledby="ledisa-title">
+							<div class="project-content">
+								<h3 class="project-title" id="ledisa-title">Ledisa ERP</h3>
+								<ul class="project-categories" aria-label="Ledisa ERP categories"><li>Business</li><li>Mobile App</li><li>ERP</li></ul>
+								<p class="project-description">A mobile ERP solution for SMEs to manage operations, inventory, finance and reporting on the go.</p>
+								<div class="project-action-row"><button class="project-action" type="button" disabled aria-describedby="ledisa-link-status">View Project <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 18 18 6M6 6h12v12"/></svg></button><span class="project-link-status" id="ledisa-link-status">Link pending</span></div>
+							</div>
+							<div class="project-artwork project-artwork--mobile"><img class="project-phones" src="assets/projects/ledisa-mobile-showcase.svg" alt="Illustrative Ledisa ERP mobile screens on two overlapping smartphones, showing an overview and analytics" width="405" height="405" loading="lazy" decoding="async" /></div>
 						</article>
 					</div>
 				</section>
