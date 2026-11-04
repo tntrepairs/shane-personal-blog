@@ -189,15 +189,34 @@
 					</div>
 				</section>
 
-				<section class="dashboard-card stacked" id="articles">
+				<section class="dashboard-card stacked" id="articles" aria-labelledby="articles-title">
 					<div class="section-head reveal">
-						<div><span class="number">04</span><h2>Latest Articles</h2><p>Reflections, insights and lessons from my academic journey, work and projects.</p></div>
-						<a class="dark-btn" href="#">View All <span>↗</span></a>
+						<div><span class="number">04</span><h2 id="articles-title">Latest Articles</h2><p>Reflections, insights and lessons from my academic journey, work and projects.</p></div>
+						<button class="dark-btn articles-view-all" type="button" disabled aria-describedby="articles-status">View All <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg></button>
+						<span class="sr-only" id="articles-status">Article pages are not published yet.</span>
 					</div>
 					<div class="article-grid">
-						<article class="article-card reveal"><img loading="lazy" decoding="async" src="assets/shane_exact_assets/cuts/article_card_1.webp" alt="AI-generated study desk" /><div><span>Academic</span><time>Oct 12, 2026</time></div><h3>Balancing University, Work and Personal Projects</h3><p>How I manage my time, focus and energy while studying, working and building projects.</p><a href="#">↗</a></article>
-						<article class="article-card reveal"><img loading="lazy" decoding="async" src="assets/shane_exact_assets/cuts/article_card_2.webp" alt="AI-generated city skyline" /><div><span>Technology</span><time>Oct 4, 2026</time></div><h3>What I’ve Learned Building BorderReady</h3><p>Key lessons from developing a real-world logistics solution.</p><a href="#">↗</a></article>
-						<article class="article-card reveal"><img loading="lazy" decoding="async" src="assets/shane_exact_assets/cuts/article_card_3.webp" alt="AI-generated books and study materials" /><div><span>Personal</span><time>Sep 28, 2026</time></div><h3>Growth Beyond the Classroom</h3><p>Reflections on leadership, research and preparing for the future.</p><a href="#">↗</a></article>
+						<article class="article-card reveal" aria-labelledby="article-study-title">
+							<img loading="lazy" decoding="async" src="assets/articles/article-study.webp" alt="Open study notebook, pen and coffee on a sunlit desk" width="1200" height="800" />
+							<div class="article-meta"><span>Academic</span><time datetime="2026-10-12">Oct 12, 2026</time></div>
+							<h3 id="article-study-title">Balancing University, Work and Personal Projects</h3>
+							<p>How I manage my time, focus and energy while studying, working and building projects.</p>
+							<button class="article-arrow" type="button" disabled aria-label="Article link pending: Balancing University, Work and Personal Projects" title="Article link pending"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg></button>
+						</article>
+						<article class="article-card reveal" aria-labelledby="article-borderready-title">
+							<img loading="lazy" decoding="async" src="assets/articles/article-city.webp" alt="Gaborone skyline at sunset" width="1200" height="800" />
+							<div class="article-meta"><span>Technology</span><time datetime="2026-10-04">Oct 4, 2026</time></div>
+							<h3 id="article-borderready-title">What I’ve Learned Building BorderReady</h3>
+							<p>Key lessons from developing a real-world logistics solution.</p>
+							<button class="article-arrow" type="button" disabled aria-label="Article link pending: What I’ve Learned Building BorderReady" title="Article link pending"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg></button>
+						</article>
+						<article class="article-card reveal" aria-labelledby="article-growth-title">
+							<img loading="lazy" decoding="async" src="assets/articles/article-growth.webp" alt="Books, reading glasses and a journal on a dark wooden desk" width="1200" height="800" />
+							<div class="article-meta"><span>Personal</span><time datetime="2026-09-28">Sep 28, 2026</time></div>
+							<h3 id="article-growth-title">Growth Beyond the Classroom</h3>
+							<p>Reflections on leadership, research and preparing for the future.</p>
+							<button class="article-arrow" type="button" disabled aria-label="Article link pending: Growth Beyond the Classroom" title="Article link pending"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10" /></svg></button>
+						</article>
 					</div>
 				</section>
 
