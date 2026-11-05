@@ -87,19 +87,19 @@ const previewItems = {
 		title: "My Journey at BAC",
 		description: "Studying Business Intelligence and Data Analytics at Botswana Accountancy College.",
 		image: "assets/hero-custom/bac-facade.webp",
-		href: "#about", action: "Explore my journey"
+		href: "journey.html", action: "Explore my journey"
 	},
 	experience: {
 		title: "Experience",
 		description: "Debt collection, legal internship and research leadership from the portfolio.",
 		image: "assets/hero-custom/coding-laptop.webp",
-		href: "#experience", action: "Explore experience"
+		href: "experience.html", action: "Explore experience"
 	},
 	projects: {
 		title: "Featured projects",
-		description: "BorderReady logistics and Debtflow Pro debt management projects.",
+		description: "BorderReady logistics and Ledisa ERP mobile app project concepts.",
 		image: "assets/hero-custom/project-bg.webp",
-		href: "#projects", action: "Explore projects"
+		href: "projects.html", action: "Explore projects"
 	}
 };
 

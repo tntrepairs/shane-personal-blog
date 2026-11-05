@@ -821,23 +821,11 @@ img { display: block; max-width: 100%; }
 .skill-grid { grid-template-columns: repeat(4, 1fr); }
 
 .skill-card,
-.contact-pills a {
+.contact-method {
 	border: 1px solid var(--line);
 	border-radius: 16px;
 	background: rgba(255, 250, 240, 0.5);
 	box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
-}
-
-.skill-card h3 {
-	margin: 0 0 10px;
-	font-size: 25px;
-	line-height: 1;
-	letter-spacing: -0.055em;
-}
-
-.skill-card p {
-	color: var(--muted);
-	line-height: 1.45;
 }
 
 /* Section 03: light editorial cards with independent vector product artwork. */
@@ -1031,73 +1019,30 @@ img { display: block; max-width: 100%; }
 
 #articles .article-arrow:disabled { opacity: 1; }
 
-.skill-card {
-	min-height: 145px;
-	padding: 22px;
-}
-
-.skill-card b {
-	display: grid;
-	place-items: center;
-	width: 38px;
-	height: 38px;
-	margin-bottom: 12px;
-	border-radius: 10px;
-	background: #171713;
-	color: #fffaf0;
-}
-
-.skill-card h3 {
-	font-size: 18px;
-	letter-spacing: -0.035em;
-}
-
-.cv-photo {
-	height: 180px;
-}
-
+.skills .section-head { align-items: center; }
+.skill-card { min-height: 196px; padding: 22px; }
+.skill-icon { display: grid; place-items: center; width: 54px; height: 54px; margin-bottom: 16px; border-radius: 14px; background: #171713; color: #fffaf0; }
+.skill-icon svg { width: 25px; height: 25px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.skill-card h3 { margin: 0 0 9px; font-size: clamp(16px, 1.2vw, 19px); line-height: 1.15; letter-spacing: -.035em; }
+.skill-card p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+.cv-photo { width: 100%; height: clamp(240px, 24vw, 360px); object-fit: cover; object-position: center 48%; border-radius: 18px; }
 .button-row { display: flex; gap: 12px; flex-wrap: wrap; }
-
-.contact-pills {
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 18px;
-	margin-top: 32px;
-}
-
-.contact-pills a {
-	display: flex;
-	align-items: center;
-	gap: 14px;
-	padding: 16px;
-}
-
-.contact-pills b {
-	display: grid;
-	place-items: center;
-	width: 34px;
-	height: 34px;
-	border-radius: 50%;
-	background: #fffaf0;
-}
-
-.contact-pills small { color: var(--muted); }
-
-.contact-card {
-	min-height: 235px;
-	padding: 34px;
-}
-
-.contact-card h3 {
-	max-width: 310px;
-	margin: 0;
-	font-size: 28px;
-	line-height: 1.08;
-	letter-spacing: -0.045em;
-}
-
-.contact-card p { color: rgba(255, 250, 240, 0.72); }
-.contact-card .light-btn { margin-top: 24px; }
+.contact-pills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: 26px; }
+.contact-method { display: flex; min-width: 0; align-items: center; gap: 11px; padding: 12px; color: var(--ink); font-size: 13px; line-height: 1.35; }
+.contact-method small { display: inline-block; max-width: 100%; margin-top: 3px; color: var(--muted); font-size: 10px; line-height: 1.35; overflow-wrap: anywhere; }
+.contact-method-icon { display: grid; flex: 0 0 34px; place-items: center; width: 34px; height: 34px; border-radius: 50%; background: #fffaf0; color: #171713; }
+.contact-method-icon svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.contact-method-icon.github-mark svg, .contact-method-icon.linkedin-mark svg { fill: currentColor; stroke: none; }
+.contact-method-icon.linkedin-mark svg { width: 16px; height: 16px; }
+.asset-note { margin: 10px 0 0; color: var(--muted); font-size: 11px !important; line-height: 1.45 !important; }
+.contact-card { min-height: 310px; padding: clamp(24px, 2.2vw, 36px); }
+.contact-card h3 { max-width: 370px; margin: 0; font-size: clamp(24px, 2.1vw, 32px); line-height: 1.1; letter-spacing: -.04em; }
+.contact-card p { max-width: 330px; margin: 14px 0 0; color: rgba(255, 250, 240, .82); font-size: 14px; line-height: 1.5; }
+.contact-card .light-btn { margin-top: 22px; }
+.cv-row .asset-note { margin-top: 13px; }
+.button-row .directional-icon { width: 17px; height: 17px; }
+.directional-icon { transition: transform 200ms ease; }
+.dark-btn:hover .directional-icon, .dark-btn:focus-visible .directional-icon, .light-btn:hover .directional-icon, .light-btn:focus-visible .directional-icon { transform: translate(1px, -1px); }
 
 .tilt-card { transform-style: preserve-3d; transition: transform 180ms ease; }
 
@@ -1240,3 +1185,14 @@ img { display: block; max-width: 100%; }
 	.preview-dot { transform: none !important; }
 	* { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
 }
+#skills .skill-grid { gap: clamp(14px,1.35vw,22px); }
+#skills .skill-card { border:1px solid rgba(74,65,50,.13); background:rgba(255,250,240,.58); box-shadow:0 8px 22px rgba(35,30,20,.045); }
+#cv .section-copy h3 { max-width:520px; }
+#contact.contact-row { align-items:center; }
+#contact .contact-card { background-image:linear-gradient(90deg,rgba(13,13,12,.77),rgba(13,13,12,.32)),var(--bg); background-position:center; }
+#contact .contact-pills { gap:10px; }
+#contact .contact-method { min-height:66px; }
+#contact .contact-method[href]:hover { background:rgba(255,250,240,.9); }
+@media (max-width: 980px) { #contact .contact-pills { grid-template-columns:1fr; } }
+#contact .contact-card .light-btn { color:var(--ink); font-size:13px; font-weight:600; }
+#skills,#cv,#contact { scroll-margin-top:110px; }
