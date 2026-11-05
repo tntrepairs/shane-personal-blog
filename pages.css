@@ -132,42 +132,9 @@
 .page-footer { margin-top:18px; padding-inline:12px; }
 .portfolio-page :focus-visible { outline:2px solid rgba(24,24,21,.62); outline-offset:4px; }
 .page-footer :focus-visible { outline-color:#fffaf0; }
-@media (max-width: 980px) {
-  .page-shell--inner,.page-topbar.is-scrolled { width:calc(100% - 24px); }
-  .page-topbar { position:relative; top:auto; min-height:0; margin-bottom:14px; border-radius:22px; }
-  .page-hero--split,.project-detail-card,.contact-page-grid,.cv-columns { grid-template-columns:1fr; }
-  .about-visual { min-height:330px; }
-  .about-visual > img { height:330px; }
-  .floating-facts { width:min(300px,68%); }
-  .approach-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .tuckman-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
-}
-@media (max-width: 620px) {
-  .page-shell--inner { width:100%; margin:0 auto 20px; }
-  .page-main { border-radius:0; }
-  .page-topbar { display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; border-radius:0; }
-  .page-topbar .nav-pill { order:3; width:100%; flex-wrap:wrap; }
-  .page-main > section,.page-section { padding:32px 20px; }
-  .page-hero--split,.page-hero--compact { min-height:0; }
-  .page-main h1 { font-size:48px; }
-  .page-card-grid--2,.approach-grid,.reflection-grid,.experience-detail-grid,.detail-pair { grid-template-columns:1fr; }
-  .timeline::before { left:5px; }
-  .timeline-entry { grid-template-columns:1fr; gap:7px; padding-left:23px; }
-  .timeline-entry::before { left:0; top:5px; }
-  .timeline-date { padding:0; text-align:left; }
-  .tuckman-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
-  .project-detail-card,.experience-feature { margin-inline:16px; padding:20px; }
-  .project-detail-art { min-height:230px; }
-  .project-detail-art--mobile img { max-height:280px; }
-  .contact-page-grid,.cv-columns { padding-inline:20px; }
-  .cv-profile { margin-inline:20px; }
-  .page-cta { flex-direction:column; align-items:flex-start; }
-  .page-footer { margin-inline:14px; }
-}
 @media (prefers-reduced-motion: reduce) { .portfolio-page *, .portfolio-page *::before, .portfolio-page *::after { scroll-behavior:auto !important; transition-duration:.01ms !important; animation-duration:.01ms !important; } }
 .page-topbar .nav-pill a { padding: 10px clamp(10px,1.15vw,18px); font-size: 13px; }
 .page-topbar .dark-btn { min-height:44px; }
 .project-detail-copy .project-categories { display:flex; flex-wrap:wrap; gap:8px; list-style:none; padding:0; }
 .project-detail-copy .project-categories li { padding:6px 11px; font-size:11px; }
 .page-main .contact-detail-card:hover { border-color:rgba(24,24,21,.24); background:rgba(255,250,240,.88); }
-@media (max-width: 980px) { .page-topbar .nav-pill a { padding:8px 10px; } }

@@ -200,7 +200,7 @@ if (topbar) {
 	updateTopbar();
 }
 
-if (!reduceMotion && window.Lenis) {
+if (!reduceMotion && window.Lenis && matchMedia("(min-width: 1101px) and (pointer: fine)").matches) {
 	const lenis = new Lenis({ duration: 1.05, smoothWheel: true });
 	function raf(time) {
 		lenis.raf(time);
@@ -209,7 +209,7 @@ if (!reduceMotion && window.Lenis) {
 	requestAnimationFrame(raf);
 }
 
-if (!reduceMotion && window.gsap) {
+if (!reduceMotion && window.gsap && matchMedia("(min-width: 1101px) and (pointer: fine)").matches) {
 	gsap.registerPlugin(ScrollTrigger);
 
 	gsap.utils.toArray(".reveal").forEach((item) => {
