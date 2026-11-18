@@ -19,7 +19,7 @@ No build step is required. Open `index.html` locally or publish the repository w
 - `contact.html`
 - `cv.html`
 
-The verified email and LinkedIn profile are connected. The personal GitHub account is coming soon and is intentionally non-clickable. The genuine CV PDF is still needed; its download remains disabled.
+The verified email and LinkedIn profile are connected. The personal GitHub account is coming soon and is intentionally non-clickable. The original r?sum? PDF and all four assignment PDFs are available under `assets/documents/`. The referee title/email in the original r?sum? require confirmation; see `ASSESSMENT-REVIEW.md`.
 
 ## Responsive navigation and transitions
 
@@ -38,3 +38,9 @@ To finish setup:
 4. Once confirmed, replace the pending-activation helper text in `contact.html` with the normal form guidance.
 
 Official integration reference: https://formsubmit.co/documentation and https://formsubmit.co/ajax-documentation . If the service remains unavailable, create a Formspree form addressed to the same inbox and replace both form endpoints with its real dashboard-provided endpoint; do not invent a form ID.
+
+## CSS assessment portfolio
+
+`portfolio.html` links to the 579-word academic reflection in `journey.html`, `group-work.html`, `application-letter.html` and `email-template.html`. All original assignment PDFs are preserved. `portfolio-content.css` scopes the new reading pages, assignment cards and applied-skills showcase. The email template has a local copy action only.
+
+See `ASSESSMENT-REVIEW.md` for source provenance, project-demo limitations and outstanding student review/submission steps.

@@ -647,7 +647,7 @@ img { display: block; max-width: 100%; }
 	top: 25%;
 }
 
-.hero-project-panel .df-logo {
+.hero-project-panel .ledisa-logo {
 	bottom: 7%;
 }
 
@@ -1072,7 +1072,7 @@ img { display: block; max-width: 100%; }
 		width: min(136px, calc(100% - 32px));
 	}
 	.hero-project-panel .br-logo { top: 20%; }
-	.hero-project-panel .df-logo { bottom: 2%; }
+	.hero-project-panel .ledisa-logo { bottom: 2%; }
 }
 
 @media (prefers-reduced-motion: reduce) {

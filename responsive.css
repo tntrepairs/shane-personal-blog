@@ -71,7 +71,7 @@
   .quick-links + .hero-project-panel { grid-column: 1 / -1; height: 220px; margin: 0; }
   .hero-project-panel .project-logo { width: 130px; }
   .hero-project-panel .br-logo { top: 27%; left: 22%; }
-  .hero-project-panel .df-logo { top: 27%; bottom: auto; left: 58%; }
+  .hero-project-panel .ledisa-logo { top: 27%; bottom: auto; left: 58%; }
   .hero-project-panel .divider-line { display: none; }
   .split-section,.cv-row,.contact-row { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; padding: 32px 24px; }
   #about { grid-template-columns: repeat(2,minmax(0,1fr)); gap: 24px; padding: 32px 24px; }
@@ -162,7 +162,7 @@
   .quick-links + .hero-project-panel { grid-column: 1; height: 230px; }
   .hero-project-panel .project-logo { width: 105px; }
   .hero-project-panel .br-logo { left: 7%; top: 30%; }
-  .hero-project-panel .df-logo { left: 53%; top: 30%; }
+  .hero-project-panel .ledisa-logo { left: 53%; top: 30%; }
   .hero-photo-card strong { font-size: 24px; }
   .hero-photo-card small { font-size: 12px; }
   .split-section,#about,#experience,.cv-row,.contact-row { grid-template-columns: 1fr; gap: 22px; padding: 28px 18px; }

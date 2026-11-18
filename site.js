@@ -62,3 +62,13 @@ contactForm?.addEventListener('submit', async event => {
     button.innerHTML = label;
   }
 });
+// Copying the template never sends an email or opens a mail client.
+document.getElementById('copy-email')?.addEventListener('click', async () => {
+  const status = document.getElementById('copy-status');
+  try {
+    await navigator.clipboard.writeText(document.getElementById('email-document').innerText);
+    status.textContent = 'Email template copied. Replace [Organisation Name] before use.';
+  } catch {
+    status.textContent = 'Copy unavailable here. Select and copy the template text below.';
+  }
+});
