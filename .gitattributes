@@ -1,0 +1,2 @@
+# Original submitted PDFs must retain their exact bytes and cross-reference offsets.
+*.pdf binary
