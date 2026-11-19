@@ -52,3 +52,7 @@
   .document-body h2 { font-size:24px; }
   .hero-project-panel .ledisa-logo { font-size:23px; }
 }
+
+/* Quiet, consistent external project preview actions. */
+.project-detail-copy > .dark-btn { min-height:44px; padding:0 18px; border-radius:999px; font-size:14px; box-shadow:none; }
+.project-detail-copy > .dark-btn:hover { background:#32312d; box-shadow:none; }

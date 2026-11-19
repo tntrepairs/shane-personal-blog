@@ -19,7 +19,7 @@ No build step is required. Open `index.html` locally or publish the repository w
 - `contact.html`
 - `cv.html`
 
-The verified email and LinkedIn profile are connected. The personal GitHub account is coming soon and is intentionally non-clickable. The original r?sum? PDF and all four assignment PDFs are available under `assets/documents/`. The referee title/email in the original r?sum? require confirmation; see `ASSESSMENT-REVIEW.md`.
+The verified email, LinkedIn profile, and GitHub profile are connected. The original r?sum? PDF and all four assignment PDFs are available under `assets/documents/`. The referee title/email in the original r?sum? require confirmation; see `ASSESSMENT-REVIEW.md`.
 
 ## Responsive navigation and transitions
 
@@ -44,3 +44,7 @@ Official integration reference: https://formsubmit.co/documentation and https://
 `portfolio.html` links to the 579-word academic reflection in `journey.html`, `group-work.html`, `application-letter.html` and `email-template.html`. All original assignment PDFs are preserved. `portfolio-content.css` scopes the new reading pages, assignment cards and applied-skills showcase. The email template has a local copy action only.
 
 See `ASSESSMENT-REVIEW.md` for source provenance, project-demo limitations and outstanding student review/submission steps.
+
+## Contact form setup
+
+The contact form is wired to FormSubmit for katsoshanegaletshetse@gmail.com. To activate delivery, open the live Contact page and send one test message. FormSubmit sends an activation email to that inbox; open it and confirm the form. Submit a second test and confirm that the email arrives. Until activation is complete, the page shows a pending notice and provides a direct email link. No credentials are required. If the activation email does not arrive, check Spam or create a Formspree form for the same recipient and replace the form action and AJAX endpoint with the real URL from its dashboard. Never invent an endpoint. The form displays loading, accepted, and error states; the accepted response means the service accepted the request, so verify inbox delivery as above.
