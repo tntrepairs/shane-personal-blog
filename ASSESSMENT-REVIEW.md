@@ -5,7 +5,7 @@
 - Home/About: existing introduction preserved; BAC start date is August 2026.
 - Academic reflection: `journey.html#academic-reflection`, 579 words of reflection body, transcribed from the supplied PDF without rewriting the student's account. Editorial subheadings are separate from the body count.
 - Group reflection: `group-work.html`, complete supplied reflection with all five Tuckman stages and the Slide 9/10 examples. Hypothetical presentation problems remain distinguished from actual group coordination challenges.
-- Application letter: `application-letter.html`, original letter with `[Organisation Name]` explicitly identified as a placeholder.
+- Application letter: `application-letter.html`, updated letter with generic recipient wording and no organisation placeholder.
 - Email: `email-template.html`, original selectable template with a copy action; no sending action.
 - Skills: `index.html#skills`, three applied categories with context, examples, learning and evidence limitations. No original internship workbook or customer information is published.
 - CV: original résumé available on Home and `cv.html`; web experience wording distinguishes reports prepared from dashboard development assisted.
@@ -26,7 +26,7 @@ Both supplied app URLs returned HTTP 200 and opened in a real browser without au
 
 - Original résumé referee title reads `Opeartions HOD`; confirm intended spelling/title.
 - Original résumé referee email is `info@preciousandpartners,com`, an invalid email format. Confirm the intended address; no corrected contact has been guessed. The original PDF remains unchanged and the web CV flags both issues.
-- Supplied reflection PDFs contain “Draft for personal review”. Review them before submission; source documents have not been silently edited.
+- Supplied reflection PDFs contain "Draft for personal review". Review them before submission; source documents have not been silently edited.
 - Review and complete the BAC submission cover sheet, student details, declaration/signature and AI-use disclosure personally. The website includes a concise implementation-assistance disclosure; it does not submit to Turnitin or sign on the student's behalf.
 - The pre-existing contact form still requires recipient activation/inbox verification. This task did not send the professional email template to anyone.
 
