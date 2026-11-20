@@ -148,7 +148,7 @@
   .hero { grid-template-columns: 1fr; padding: 8px 16px 24px; gap: 18px; }
   .hero-main { display: block; grid-column: 1; }
   .hero-photo-frame { height: 250px; border-radius: 16px; }
-  .hero-photo-frame > img { border-radius: 16px; object-position: center 38%; }
+  .hero-photo-frame > img { border-radius: 16px; object-position: center 30%; }
   .hero-copy { margin-top: -24px; margin-right: 12px; padding: 14px 0 0; border-radius: 0 22px 0 0; background: var(--paper); }
   .hero h1 { font-size: clamp(30px,8.1vw,36px); letter-spacing: -.055em; }
   .hero-copy > p.hero-supporting-copy { font-size: 17px; gap: 10px; line-height: 1.4; }

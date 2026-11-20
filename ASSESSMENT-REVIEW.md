@@ -8,10 +8,10 @@
 - Application letter: `application-letter.html`, updated letter with generic recipient wording and no organisation placeholder.
 - Email: `email-template.html`, original selectable template with a copy action; no sending action.
 - Skills: `index.html#skills`, three applied categories with context, examples, learning and evidence limitations. No original internship workbook or customer information is published.
-- CV: original résumé available on Home and `cv.html`; web experience wording distinguishes reports prepared from dashboard development assisted.
+- CV: the corrected r?sum? supplied on 20 November 2026 is linked from Home and `cv.html`; the referee email ends in `.com`.
 - `portfolio.html` indexes the four assignments; every page has a footer route and the mobile More menu includes Academic Portfolio.
 
-All five PDFs in `assets/documents/` are byte-for-byte copies of the supplied files. The assessment brief itself is not published as a student artifact.
+The original academic and group reflection PDFs are retained. The application letter and email template PDFs reflect the cleaned website documents; the latest supplied r?sum? PDF replaces the earlier copy. The assessment brief itself is not published as a student artifact.
 
 ## Evidence and live projects
 
@@ -24,8 +24,6 @@ Both supplied app URLs returned HTTP 200 and opened in a real browser without au
 
 ## Matters still requiring the student's attention
 
-- Original résumé referee title reads `Opeartions HOD`; confirm intended spelling/title.
-- Original résumé referee email is `info@preciousandpartners,com`, an invalid email format. Confirm the intended address; no corrected contact has been guessed. The original PDF remains unchanged and the web CV flags both issues.
 - Supplied reflection PDFs contain "Draft for personal review". Review them before submission; source documents have not been silently edited.
 - Review and complete the BAC submission cover sheet, student details, declaration/signature and AI-use disclosure personally. The website includes a concise implementation-assistance disclosure; it does not submit to Turnitin or sign on the student's behalf.
 - The pre-existing contact form still requires recipient activation/inbox verification. This task did not send the professional email template to anyone.
